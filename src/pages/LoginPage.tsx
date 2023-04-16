@@ -2,15 +2,12 @@ import React from "react";
 import {
   Flex,
   Box,
-  Center,
-  Image,
   Input,
   Button,
   FormControl,
   FormLabel,
   Text,
   Link,
-  VStack,
   InputGroup,
   InputLeftElement,
 } from "@chakra-ui/react";
@@ -19,7 +16,7 @@ import { login } from "../store/actions/authActions";
 import { useNavigate } from "react-router-dom";
 import { EmailIcon, Logo, PasswordIcon } from "../assets";
 
-const LoginPage: React.FC = () => {
+const LoginPage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
