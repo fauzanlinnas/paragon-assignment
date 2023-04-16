@@ -11,13 +11,16 @@ import {
 } from "@chakra-ui/react";
 import { useDispatch } from "react-redux";
 import { login } from "../store/actions/authActions";
+import { useNavigate } from "react-router-dom";
 
 const LoginPage: React.FC = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleLogin = () => {
     // Dispatch the login action
     dispatch(login());
+    navigate("/chat");
   };
   return (
     <Flex minHeight="100vh">
