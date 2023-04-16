@@ -8,10 +8,16 @@ import {
   Button,
   FormControl,
   FormLabel,
+  Text,
+  Link,
+  VStack,
+  InputGroup,
+  InputLeftElement,
 } from "@chakra-ui/react";
 import { useDispatch } from "react-redux";
 import { login } from "../store/actions/authActions";
 import { useNavigate } from "react-router-dom";
+import { EmailIcon, Logo, PasswordIcon } from "../assets";
 
 const LoginPage: React.FC = () => {
   const dispatch = useDispatch();
@@ -32,19 +38,40 @@ const LoginPage: React.FC = () => {
         textAlign="center"
         justifyContent="center"
       >
-        <Center>
-          <Image src="/path/to/your/image.jpg" maxW="200px" borderRadius="md" />
-        </Center>
-        <Box mt={8}>
-          <FormControl>
-            <FormLabel htmlFor="email">Email:</FormLabel>
-            <Input type="email" id="email" name="email" />
+        <Logo />
+        <Box mb={12}>
+          <Text fontSize="3xl" textAlign="left" fontWeight="bold" mb={3}>
+            Login ke akunmu{" "}
+          </Text>
+          <Text textAlign="left">Masuk akun untuk menggunakan PituChat </Text>
+        </Box>
+        <Box display="flex" flexDirection="column">
+          <FormControl mb={6}>
+            <FormLabel htmlFor="email">Email</FormLabel>
+            <InputGroup>
+              <InputLeftElement pointerEvents="none" children={<EmailIcon />} />
+              <Input type="email" id="email" name="email" />
+            </InputGroup>
           </FormControl>
-          <FormControl>
-            <FormLabel htmlFor="password">Password:</FormLabel>
-            <Input type="password" id="password" name="password" />
+          <FormControl mb={2}>
+            <FormLabel htmlFor="password">Password</FormLabel>
+            <InputGroup>
+              <InputLeftElement
+                pointerEvents="none"
+                children={<PasswordIcon />}
+              />
+              <Input type="password" id="password" name="password" />
+            </InputGroup>
           </FormControl>
-          <Button colorScheme="teal" onClick={handleLogin}>
+          <Link color={"#808080"} fontSize={"sm"} mb={6} alignSelf="flex-end">
+            Lupa password?
+          </Link>
+          <Button
+            w="full"
+            bgColor="#0C4AC0"
+            onClick={handleLogin}
+            color="white"
+          >
             Login
           </Button>
         </Box>
