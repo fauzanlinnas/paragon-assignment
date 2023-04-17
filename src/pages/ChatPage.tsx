@@ -1,19 +1,25 @@
-import React, { useState } from "react";
-import { Outlet } from "react-router-dom";
-import { Box, Flex } from "@chakra-ui/react";
+import { useState } from "react";
 import Sidebar from "../component/Sidebar";
-import ChatList from "../component/ChatList";
+import ChatList from "../modules/chat-room/ChatList";
+import { Flex } from "@chakra-ui/react";
+import Conversation from "../modules/chat-room/Conversation";
+import ConversationInfo from "../modules/chat-room/ConversationInfo";
 
 const ChatPage = () => {
   const [activeTab, setActiveTab] = useState<string>("chat");
+  const [activeChat, setActiveChat] = useState<null | object>(null);
+  const [isInfoExpanded, setIsInfoExpanded] = useState(false);
 
   return (
     <Flex height="100vh">
       <Sidebar activeTab={activeTab} setActiveTab={setActiveTab} />
-      <ChatList />
-      <Box flex="1" padding="4">
-        <Outlet />
-      </Box>
+      <ChatList
+        activeChat={activeChat}
+        setActiveChat={setActiveChat}
+        setIsInfoExpanded={setIsInfoExpanded}
+      />
+      <Conversation activeChatData={activeChat} />
+      {isInfoExpanded && <ConversationInfo />}
     </Flex>
   );
 };
