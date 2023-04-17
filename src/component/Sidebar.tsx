@@ -55,7 +55,7 @@ const Sidebar = ({ activeTab, setActiveTab }: SidebarProps) => {
         </VStack>
         <NavItem
           onClick={() => {}}
-          value="Toko"
+          value="Keluar"
           icon={<PhoneIcon boxSize={6} />}
           isActive={false}
         />
