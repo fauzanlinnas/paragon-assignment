@@ -5,3 +5,8 @@ export { SearchIcon } from "./SearchIcon";
 export { FilterIcon } from "./FilterIcon";
 export { InfoIcon } from "./InfoIcon";
 export { TokopediaIcon } from "./TokopediaIcon";
+export { ChatIcon } from "./ChatIcon";
+export { TokoIcon } from "./TokoIcon";
+export { LogoutIcon } from "./LogoutIcon";
+export { ChevronDown } from "./ChevronDown";
+export { CloseIcon } from "./CloseIcon";

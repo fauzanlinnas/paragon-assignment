@@ -1,6 +1,6 @@
 import { Box, Button, HStack, Input, Stack, Text } from "@chakra-ui/react";
 import { useState } from "react";
-import { InfoIcon, SearchIcon } from "../../assets";
+import { InfoIcon, SearchIcon } from "../../assets/icons";
 import {
   IncomingMessage,
   OutgoingMessage,
@@ -67,6 +67,7 @@ const Conversation = ({
         alignItems="center"
         pl={5}
         pr={4}
+        bg="#F9F9FA"
       >
         <Text fontWeight="bold">Penggemar Pitu Chat</Text>
         <HStack spacing={5}>

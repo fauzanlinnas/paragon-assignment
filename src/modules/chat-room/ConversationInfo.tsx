@@ -1,8 +1,12 @@
-import { Avatar, Box, Flex, Text } from "@chakra-ui/react";
+import { Avatar, Box, Button, Flex, Text } from "@chakra-ui/react";
 import ShopTag from "../../component/ShopTag";
-import { TokopediaIcon } from "../../assets";
+import { CloseIcon, TokopediaIcon } from "../../assets/icons";
 
-const ConversationInfo = () => {
+type ConversationInfoProps = {
+  setIsInfoExpanded: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+const ConversationInfo = ({ setIsInfoExpanded }: ConversationInfoProps) => {
   return (
     <Flex
       flexDirection="column"
@@ -10,7 +14,19 @@ const ConversationInfo = () => {
       width="239px"
       flexShrink={0}
       py={16}
+      position="relative"
     >
+      <Button
+        position="absolute"
+        top="23px"
+        right="16px"
+        bg="none"
+        borderRadius="full"
+        p={0}
+        onClick={() => setIsInfoExpanded(false)}
+      >
+        <CloseIcon />
+      </Button>
       <Avatar
         width="80px"
         height="80px"

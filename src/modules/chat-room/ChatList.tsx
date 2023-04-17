@@ -1,6 +1,6 @@
 import { Avatar, Box, Button, HStack, Text, VStack } from "@chakra-ui/react";
 import React, { useState } from "react";
-import { FilterIcon, SearchIcon, TokopediaIcon } from "../../assets";
+import { FilterIcon, SearchIcon, TokopediaIcon } from "../../assets/icons";
 import ShopTag from "../../component/ShopTag";
 
 const conversationList = [
@@ -42,6 +42,17 @@ type ChatListProps = {
 const ChatList = ({ activeChat, setActiveChat }: ChatListProps) => {
   const [activeFilter, setActiveFilter] = useState<string>("unread");
 
+  const filterStyle = (tabFilter: string) => ({
+    fontWeight: activeFilter === tabFilter ? "bold" : "semibold",
+    borderBottomColor: activeFilter === tabFilter ? "#0C4AC0" : "#EBEBEB",
+    color: activeFilter === tabFilter ? "#1A1A1A" : "#808080",
+    cursor: "pointer",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    fontSize: "sm",
+  });
+
   return (
     <Box w="359px">
       <HStack justifyContent="space-between" py="25px" px={4}>
@@ -60,15 +71,8 @@ const ChatList = ({ activeChat, setActiveChat }: ChatListProps) => {
           textAlign="center"
           py="22px"
           borderBottom="3px solid"
-          fontWeight={activeFilter === "unread" ? "bold" : "semibold"}
-          borderBottomColor={activeFilter === "unread" ? "#0C4AC0" : "#EBEBEB"}
-          color={activeFilter === "unread" ? "#1A1A1A" : "#808080"}
           onClick={() => setActiveFilter("unread")}
-          cursor="pointer"
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-          fontSize="sm"
+          {...filterStyle("unread")}
         >
           Perlu balas
           <Text
@@ -90,15 +94,8 @@ const ChatList = ({ activeChat, setActiveChat }: ChatListProps) => {
           textAlign="center"
           py="22px"
           borderBottom="3px solid"
-          fontWeight={activeFilter === "replied" ? "bold" : "semibold"}
-          borderBottomColor={activeFilter === "replied" ? "#0C4AC0" : "#EBEBEB"}
-          color={activeFilter === "replied" ? "#1A1A1A" : "#808080"}
           onClick={() => setActiveFilter("replied")}
-          cursor="pointer"
-          fontSize="sm"
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
+          {...filterStyle("replied")}
         >
           Terbalas
         </Text>
@@ -108,15 +105,8 @@ const ChatList = ({ activeChat, setActiveChat }: ChatListProps) => {
           textAlign="center"
           py="22px"
           borderBottom="3px solid"
-          fontWeight={activeFilter === "all" ? "bold" : "semibold"}
-          borderBottomColor={activeFilter === "all" ? "#0C4AC0" : "#EBEBEB"}
-          color={activeFilter === "all" ? "#1A1A1A" : "#808080"}
           onClick={() => setActiveFilter("all")}
-          cursor="pointer"
-          fontSize="sm"
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
+          {...filterStyle("all")}
         >
           Semua chat
         </Text>

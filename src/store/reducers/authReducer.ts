@@ -1,7 +1,6 @@
 import type { AuthAction } from "../actions/authActions";
 
-// Define the initial state for authentication
-interface AuthState {
+export interface AuthState {
   isAuthenticated: boolean;
 }
 

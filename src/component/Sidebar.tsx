@@ -1,5 +1,7 @@
 import { VStack, Box, Text } from "@chakra-ui/react";
-import { ChatIcon, PhoneIcon } from "@chakra-ui/icons";
+import { useDispatch } from "react-redux";
+import { logout } from "../store/actions/authActions";
+import { ChatIcon, LogoutIcon, TokoIcon } from "../assets/icons";
 
 type NavItemProps = {
   onClick: () => void;
@@ -25,12 +27,16 @@ const NavItem = ({ onClick, value, icon, isActive }: NavItemProps) => {
       onClick={onClick}
     >
       {icon}
-      <Text mt={2}>{value}</Text>
+      <Text mt={2} color="#0C4AC0" fontSize="sm" fontWeight="bold">
+        {value}
+      </Text>
     </Box>
   );
 };
 
 const Sidebar = ({ activeTab, setActiveTab }: SidebarProps) => {
+  const dispatch = useDispatch();
+
   return (
     <Box width="115px">
       <VStack
@@ -43,20 +49,20 @@ const Sidebar = ({ activeTab, setActiveTab }: SidebarProps) => {
           <NavItem
             onClick={() => setActiveTab("chat")}
             value="Chat"
-            icon={<ChatIcon boxSize={6} />}
+            icon={<ChatIcon />}
             isActive={activeTab === "chat"}
           />
           <NavItem
             onClick={() => setActiveTab("toko")}
             value="Toko"
-            icon={<PhoneIcon boxSize={6} />}
+            icon={<TokoIcon />}
             isActive={activeTab === "toko"}
           />
         </VStack>
         <NavItem
-          onClick={() => {}}
+          onClick={() => dispatch(logout())}
           value="Keluar"
-          icon={<PhoneIcon boxSize={6} />}
+          icon={<LogoutIcon />}
           isActive={false}
         />
       </VStack>
