@@ -13,12 +13,11 @@ const ChatPage = () => {
   return (
     <Flex height="100vh">
       <Sidebar activeTab={activeTab} setActiveTab={setActiveTab} />
-      <ChatList
-        activeChat={activeChat}
-        setActiveChat={setActiveChat}
+      <ChatList activeChat={activeChat} setActiveChat={setActiveChat} />
+      <Conversation
+        activeChatData={activeChat}
         setIsInfoExpanded={setIsInfoExpanded}
       />
-      <Conversation activeChatData={activeChat} />
       {isInfoExpanded && <ConversationInfo />}
     </Flex>
   );

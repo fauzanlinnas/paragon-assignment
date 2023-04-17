@@ -8,6 +8,7 @@ import {
 
 type ConversationProps = {
   activeChatData: any;
+  setIsInfoExpanded: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 type ChatMessage = {
@@ -19,7 +20,10 @@ type ChatMessage = {
   timeSent: string;
 };
 
-const Conversation = ({ activeChatData }: ConversationProps) => {
+const Conversation = ({
+  activeChatData,
+  setIsInfoExpanded,
+}: ConversationProps) => {
   const [newMessage, setNewMessage] = useState("");
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
@@ -62,12 +66,19 @@ const Conversation = ({ activeChatData }: ConversationProps) => {
         height={16}
         alignItems="center"
         pl={5}
-        pr={8}
+        pr={4}
       >
         <Text fontWeight="bold">Penggemar Pitu Chat</Text>
         <HStack spacing={5}>
           <SearchIcon />
-          <InfoIcon />
+          <Button
+            onClick={() => setIsInfoExpanded((oldState) => !oldState)}
+            bg="white"
+            borderRadius="full"
+            p={0}
+          >
+            <InfoIcon />
+          </Button>
         </HStack>
       </HStack>
       <Stack

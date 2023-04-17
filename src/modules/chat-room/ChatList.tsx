@@ -1,6 +1,7 @@
 import { Avatar, Box, Button, HStack, Text, VStack } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { FilterIcon, SearchIcon, TokopediaIcon } from "../../assets";
+import ShopTag from "../../component/ShopTag";
 
 const conversationList = [
   {
@@ -36,14 +37,9 @@ const conversationList = [
 type ChatListProps = {
   activeChat: object | null;
   setActiveChat: (el: object) => void;
-  setIsInfoExpanded: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const ChatList = ({
-  activeChat,
-  setActiveChat,
-  setIsInfoExpanded,
-}: ChatListProps) => {
+const ChatList = ({ activeChat, setActiveChat }: ChatListProps) => {
   const [activeFilter, setActiveFilter] = useState<string>("unread");
 
   return (
@@ -54,9 +50,7 @@ const ChatList = ({
         </Text>
         <HStack spacing={6}>
           <SearchIcon />
-          <Button onClick={() => setIsInfoExpanded((oldState) => !oldState)}>
-            <FilterIcon />
-          </Button>
+          <FilterIcon />
         </HStack>
       </HStack>
       <HStack spacing={0} justifyContent="space-around">
@@ -168,18 +162,7 @@ const ChatList = ({
                   {val.unreadCount}
                 </Text>
               </HStack>
-              <HStack
-                bg="#D9F2E3"
-                borderRadius="base"
-                px={2}
-                py={1}
-                spacing={1}
-              >
-                <TokopediaIcon />
-                <Text fontSize="2xs" color="#1A1A1A" fontWeight="medium">
-                  {val.shopName}
-                </Text>
-              </HStack>
+              <ShopTag shopIcon={<TokopediaIcon />} shopName={val.shopName} />
             </VStack>
           </HStack>
         ))}
