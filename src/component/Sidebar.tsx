@@ -38,7 +38,7 @@ const Sidebar = ({ activeTab, setActiveTab }: SidebarProps) => {
   const dispatch = useDispatch();
 
   return (
-    <Box width="115px">
+    <Box width="115px" borderRight="1px solid #EBEBEB">
       <VStack
         align="stretch"
         spacing={0}
