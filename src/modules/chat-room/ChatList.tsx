@@ -1,5 +1,5 @@
-import { Avatar, Box, Button, HStack, Text, VStack } from "@chakra-ui/react";
-import React, { useState } from "react";
+import { Avatar, Box, HStack, Text, VStack } from "@chakra-ui/react";
+import { useState } from "react";
 import { FilterIcon, SearchIcon, TokopediaIcon } from "../../assets/icons";
 import ShopTag from "../../component/ShopTag";
 

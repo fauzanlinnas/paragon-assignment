@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Sidebar from "../component/Sidebar";
 import ChatList from "../modules/chat-room/ChatList";
-import { Box, Flex } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
 import Conversation from "../modules/chat-room/Conversation";
 import ConversationInfo from "../modules/chat-room/ConversationInfo";
 import { useSelector } from "react-redux";
